@@ -1,0 +1,77 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #471185;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        /* --- Estilos Específicos da Página de Detalhes --- */
+        .detalhes-container {
+            max-width: 900px; /* Limita a largura do conteúdo principal */
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex; /* Usa Flexbox para colocar Imagem e Info lado a lado */
+            flex-wrap: wrap;
+            gap: 20px; /* Espaço entre a imagem e as informações */
+        }
+
+        .imagem-produto {
+            flex: 1 1 40%; /* Ocupa cerca de 40% da largura do container */
+            min-width: 280px; /* Mínimo para telas pequenas */
+        }
+
+        .imagem-produto img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .info-produto {
+            flex: 1 1 55%; /* Ocupa o restante da largura */
+        }
+
+        .info-produto h1 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .preco-detalhe {
+            font-size: 2em;
+            color: #d9534f; /* Cor de destaque (vermelho/laranja) */
+            margin: 15px 0;
+        }
+
+        .descricao p {
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        /* Botão de Voltar (Opcional) */
+        .botao-voltar {
+            display: inline-block;
+            background-color: #00796b;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* Responsividade básica: em telas pequenas, imagem e info ficam um embaixo do outro */
+        @media (max-width: 650px) {
+            .detalhes-container {
+                flex-direction: column; /* Altera para empilhar itens */
+                margin: 20px;
+                padding: 15px;
+            }
+        }

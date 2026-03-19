@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+   <link rel="icon" href="creatureicon.ico" type="image/x-icon">
+   <title>Cadastro | Creature Petshop</title>
+   <link rel="stylesheet" href="cadastro login petshop CSS.css">
+</head>
+
+<body>
+    <header>
+      <div class="topnav">  
+        <a href="HOME.html"> <img src="creature_logo.png" alt="Página Inicial" style="width:75px;height:75px;"></a>
+        <a href="Categorias/Mercado.html">Mercado</a>
+        <a href="Categorias/Medicina.html">Medicina</a>
+        <a href="Categorias/Alimentacao .html">Alimentação</a>
+        <a href="Categorias/Higiene.html">Higiene</a>
+    
+        <div class="direita">
+          <a href="cadastro petshop HTML.html" class="logindastro">Cadastre-se</a>
+          <a href="login petshop HTML.html" class="logindastro">Faça Login</a>
+          <a href="C:/xampp/htdocs/petshop/CARRINHO2.html" class="direita-carrinho"><img src="carrinho_icone.png" alt="Carrinho" style="width:35px;height:35px;"></a>
+        </div>
+        
+      </div>
+    </header>
+
+   <main class="container">
+      <h2>Crie sua conta</h2>
+
+	  <div class="subtitulo">
+        <p>Com sua conta Creature, você ganha acesso a vários benefícios!</p>
+      </div>
+	  
+      <form id="loginForm" action="processarDados.php" method="post">
+
+         <label>Nome e sobrenome</label>
+         <div class="input-box">
+            <input type="text" id="username" name="username" placeholder="Insira seu nome completo" required>
+            <i class="bx bxs-user"></i>
+         </div>
+
+         <label>E-mail</label>
+         <div class="input-box">
+            <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+            <i class="bx bxs-envelope"></i>
+         </div>
+
+         <label>Celular</label>
+         <div class="input-box">
+            <input type="tel" name="celular" placeholder="(XX) XXXXX-XXXX" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" maxlength="15" required>
+            <i class="bx bx-mobile"></i>
+         </div>
+
+         <label>CPF</label>
+         <div class="input-box">
+            <input type="text" name="cpf" placeholder="XXX.XXX.XXX-XX" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+            <i class="bx bxs-id-card"></i>
+         </div>
+
+         <label>Gênero</label>
+         <div class="input-box">
+            <select name="generoCadastro" id="generoCadastro">
+               <option value="" disabled selected>Selecione uma opção</option>
+               <option value="masculino">Masculino</option>
+               <option value="feminino">Feminino</option>
+               <option value="outro">Outro</option>
+            </select>
+            <i class="bx bx-user-circle"></i>
+         </div>
+
+         <div id="outroGeneroWrapper" style="display: none;">
+            <div class="input-box">
+            <input type="text" id="outroGenero" name="outroGenero" placeholder="Escreva seu gênero">
+         </div>
+      </div>
+
+         <label>Data de nascimento</label>
+         <div class="input-box">
+            <input type="date" name="nascimento">
+            <i class="bx bx-calendar"></i>
+         </div>
+
+         <label>Senha</label>
+         <div class="input-box">
+            <input type="password" id="password" name="senha" placeholder="Digite sua senha" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+            <i class="bx bxs-lock-alt"></i>
+            <span class="toggle-password" toggle="#password">
+               <i class='bx bx-show'></i>
+            </span>
+         </div>
+
+         <label>Confirmar senha</label>
+         <div class="input-box">
+            <input type="password" id="confirmPassword" placeholder="Confirme sua senha" required>
+            <i class="bx bxs-lock-alt"></i>
+            <span class="toggle-password" toggle="#confirmPassword">
+               <i class='bx bx-show'></i>
+            </span>
+         </div>
+
+         <div class="condicoesSenha">
+            <p>Sua senha precisa ter:</p>
+            <div class="listaCondicoes">
+               <ul>
+                  <li>No mínimo 8 caracteres</li>
+                  <li>Letra maiúscula</li>
+               </ul>
+               <ul>
+                  <li>Letra minúscula</li>
+                  <li>Um número</li>
+               </ul>
+            </div>
+         </div>
+
+         <div class="termos">
+            <label><input type="checkbox" required> Aceito os termos e condições</label>
+         </div>
+
+         <button type="submit">Cadastrar</button>
+
+         <div class="register-link">
+            <p>Já tem uma conta? <a href="login petshop HTML.html">Entrar</a></p>
+         </div>
+      </form>
+   </main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("#loginForm");
+    const username = document.querySelector("#username");
+    const password = document.querySelector("#password");
+    const confirmPassword = document.querySelector("#confirmPassword");
+    const generoSelect = document.querySelector("#generoCadastro");
+    const outroGeneroDiv = document.querySelector("#outroGeneroWrapper");
+
+document.querySelectorAll(".toggle-password").forEach(icon => {
+    icon.addEventListener("click", () => {
+        const input = document.querySelector(icon.getAttribute("toggle"));
+        const innerIcon = icon.querySelector("i");
+
+        if (input.type === "password") {
+            input.type = "text";
+            innerIcon.classList.remove("bx-show");
+            innerIcon.classList.add("bx-hide");
+        } else {
+            input.type = "password";
+            innerIcon.classList.remove("bx-hide");
+            innerIcon.classList.add("bx-show");
+        }
+    });
+});
+
+    // Validação do formulário
+    form.addEventListener("submit", (e) => {
+        let valid = true;
+
+        // Valida campos vazios
+        [username, password, confirmPassword].forEach(input => {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+                valid = false;
+            } else {
+                input.style.border = "1px solid #ddd";
+            }
+        });
+
+        // Verifica se senhas coincidem
+        if (password.value !== confirmPassword.value) {
+            confirmPassword.style.border = "2px solid red";
+            valid = false;
+            alert("⚠️ As senhas não coincidem!");
+            return;
+        }
+
+        if (valid) {
+            alert(`✅ Bem-vindo, ${username.value}!`);
+        } else {
+	    e.preventDefault();
+            alert("⚠️ Preencha todos os campos!");
+        }
+    });
+
+    // Campo de Outro
+    generoSelect.addEventListener("change", function () {
+       if (generoSelect.value === "outro") {
+          outroGeneroDiv.style.display = "block";
+       } else {
+          outroGeneroDiv.style.display = "none";
+       }
+    });
+
+    // Feedback ao digitar
+    [username, password, confirmPassword].forEach(input => {
+        input.addEventListener("input", () => {
+            input.style.border = "1px solid #4CAF50";
+        });
+    });
+});
+</script>
+
+</body>
+</html>

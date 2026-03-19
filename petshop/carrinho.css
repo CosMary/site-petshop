@@ -1,0 +1,346 @@
+:root {
+    --color-primary: #471185; 
+    --color-secondary: #00796b; 
+    --color-text: #333;
+    --color-light-bg: #f4f4f4;
+    --color-accent: #d9534f; 
+}
+
+/* --- Reset Global --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Corpo da Página --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-light-bg); /* Do carrinho em css.css */
+    color: var(--color-text); /* Do carrinho em css.css */
+}
+
+/* --- Estilos do Topnav (Nav Bar) --- */
+.topnav {
+  overflow: hidden;
+  background-color: var(--color-primary); /* Do carrinho em css.css (usando var) */
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  height: 75px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav .direita {
+    display: flex; 
+    align-items: center; 
+    margin-left: auto; 
+    height: 100%; 
+}
+
+.topnav .logindastro {
+    font-weight: normal;
+    color: white;
+    text-decoration: none;
+    margin-right: 15px; 
+}
+
+.topnav .logindastro:hover {
+    background-color: #291046;
+    color: white;
+}
+
+.topnav .direita-carrinho {
+  margin-left: auto;
+  padding: 10px 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topnav .direita-carrinho:hover {
+    background-color: #291046;
+    color: white;
+}
+
+.topnav .direita-carrinho img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.topnav a:hover {
+  background-color: #291046;
+  color: white;
+}
+
+/* Estilo adicional do HOME.css */
+.topnav a.active {
+    background-color: #471185;
+    color: white;
+}
+
+/* --- Estilos do Header --- */
+header {
+    background: var(--color-primary); /* Do carrinho em css.css (usando var) */
+    color: #fff;
+    padding: 14px 0; /* Do carrinho em css.css */
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+h1 {
+    color: #6b3fa0;
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+h2 {
+    /* Regras do carrinho em css.css */
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+/* --- Estilos do Conteúdo Principal --- */
+.content {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 20px;
+}
+
+/* --- Estilos da Lista de Produtos (carrinho em css.css) --- */
+.products-container {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.products-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-card {
+    width: 250px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    align-items: center; 
+    text-align: center; 
+    min-height: 300px; 
+    transition: transform 0.2s;
+}
+
+.product-card p {
+    margin-top: auto; 
+    margin-bottom: 10px; 
+    width: 100%; 
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+}
+
+.product-card img {
+    width: 100%;
+    max-height: 150px; 
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-card h2 {
+    font-size: 1.1em;
+    min-height: 40px;
+    margin-bottom: 10px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.product-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.3em;
+    color: var(--color-accent);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* --- Botões do carrinho em css.css --- */
+.inspect-product-button {
+    background-color: var(--color-primary); 
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-bottom: 8px; 
+}
+
+.inspect-product-button:hover {
+    background-color: #5d2899; 
+}
+
+.button-hover-background {
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.button-hover-background:hover {
+    background-color: #005248;
+}
+
+/* --- Estilos do Carrinho de Compras (carrinho em css.css) --- */
+.shopping-cart-container {
+    max-width: 1200px; 
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-bottom: 30px;
+}
+
+.cart-table th, .cart-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; 
+    vertical-align: middle;
+}
+
+.cart-table th {
+    background-color: var(--color-primary); 
+    color: white;
+    font-weight: bold;
+}
+
+.cart-product-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+
+.product-identification {
+    display: flex;
+    align-items: center;
+}
+
+.product-qtd-input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.remove-product-button {
+    background-color: var(--color-accent); 
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.remove-product-button:hover {
+    background-color: #c9302c;
+}
+
+.cart-total-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.5em;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.cart-total-container strong {
+    margin-right: 10px;
+}
+
+.cart-total-container span {
+    color: var(--color-accent); 
+    font-weight: bold;
+}
+
+.purchase-button {
+    display: block;
+    width: 100%;
+    background-color: var(--color-secondary); 
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.purchase-button:hover {
+    background-color: #005248;
+}
+
+/* --- Estilos do Footer --- */
+footer {
+    clear: both;
+    background-color: #ffffff;
+    color: #9370DB; 
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+}

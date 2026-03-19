@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Creature Petshop</title>
+  <link rel="icon" href="creatureicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="cadastro login petshop CSS.css">
+  <script src="https://kit.fontawesome.com/5d3a0d9b0b.js" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+      <div class="topnav">  
+        <a href="HOME.html"> <img src="creature_logo.png" alt="Página Inicial" style="width:75px;height:75px;"></a>
+        <a href="Categorias/Descontos.html">Descontos </a>
+        <a href="Categorias/Mercado.html">Mercado</a>
+        <a href="Categorias/Medicina.html">Medicina</a>
+        <a href="Categorias/Alimentacao .html">Alimentação</a>
+        <a href="Categorias/Higiene.html">Higiene</a>
+    
+        <div class="direita">
+          <a href="cadastro petshop HTML.html" class="logindastro">Cadastre-se</a>
+          <a href="login petshop HTML.html" class="logindastro">Faça Login</a>
+          <a href="C:/xampp/htdocs/petshop/CARRINHO2.html" class="direita-carrinho"><img src="carrinho_icone.png" alt="Carrinho" style="width:35px;height:35px;"></a>
+        </div>
+        
+      </div>
+    </header>
+ 
+    <div class="container">
+
+    <div class="form-box">
+      <h2>Acesse sua conta</h2>
+    <div class="subtitulo">
+      <p>Faça login para continuar usando seus benefícios da Creature!</p>
+    </div>
+
+      <form id="loginForm" action="processarLogin.php" method="post">
+
+	<label>E-mail</label>
+        <div class="input-box">
+          <input type="email" id="email" name="email" placeholder="E-mail" required>
+          <i class="bx bxs-envelope"></i>
+        </div>
+
+	<label>Senha</label>
+        <div class="input-box">
+          <input type="password" id="password" name="senha" placeholder="Senha" required>
+          <i class="bx bxs-lock-alt"></i>
+	  <span class="toggle-password" toggle="#password">
+               <i class='bx bx-show'></i>
+          </span>
+        </div>
+    
+	<div class="form-container">    
+		<div class="remember-forgot">
+
+			<label class="lembrar-senha"><input type="checkbox"> Lembrar minha senha</label>
+		
+		<div class="esqueci-senha">
+		
+            <a href=""> Esqueci a senha</a>
+			
+        </div>
+    </div>
+
+        <button type="submit" name="submit">Entrar</button>
+
+        <div class="register-link">
+
+          <p>Não tem uma conta? <a href="cadastro petshop HTML.html">Cadastre-se</a></p>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div> 
+
+</body>
+
+<script>
+    document.querySelectorAll(".toggle-password").forEach(icon => {
+    icon.addEventListener("click", () => {
+        const input = document.querySelector(icon.getAttribute("toggle"));
+        const innerIcon = icon.querySelector("i");
+
+        if (input.type === "password") {
+            input.type = "text";
+            innerIcon.classList.remove("bx-show");
+            innerIcon.classList.add("bx-hide");
+        } else {
+            input.type = "password";
+            innerIcon.classList.remove("bx-hide");
+            innerIcon.classList.add("bx-show");
+        }
+    });
+});
+
+    // Função para mostrar toast (exemplo simplificado)
+    function showToast(message, type = 'success') {
+      alert(message); 
+    }
+
+    // Validação do formulário
+    const form = document.querySelector('#loginForm');
+    const emailInput = document.querySelector('#email');
+    const passwordInput = document.querySelector('#password');
+
+    form.addEventListener('submit', (e) => {
+      let valid = true;
+    
+      // Validação do campo de email
+      if (emailInput.value.trim() === '') {
+        emailInput.style.border = '2px solid red';
+        valid = false;
+      } else {
+        emailInput.style.border = '1px solid #ddd';
+      }
+
+      // Validação do campo de senha
+      if (passwordInput.value.trim() === '') {
+        passwordInput.style.border = '2px solid red';
+        valid = false;
+      } else {
+        passwordInput.style.border = '1px solid #ddd';
+      }
+
+      if (!valid) {
+        e.preventDefault();
+        showToast('Preencha todos os campos!', 'error');
+      }
+    });
+
+    // Feedback ao digitar
+    [emailInput, passwordInput].forEach(input => {
+      input.addEventListener('input', () => {
+        input.style.border = '1px solid #4CAF50';
+      });
+    });
+  </script>
+
+</html> 
